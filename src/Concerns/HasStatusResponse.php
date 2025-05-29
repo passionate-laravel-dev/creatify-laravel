@@ -10,20 +10,20 @@ trait HasStatusResponse
 {
     /**
      * response with status for api response handle
-     * @param Response $res
-     * @return JsonResponse
      */
-    public function jsonStatusResponse(Response $res): JsonResponse {
-        if($res->successful()) {
+    public function jsonStatusResponse(Response $res): JsonResponse
+    {
+        if ($res->successful()) {
             return response()->json([
                 'status' => 'success',
-                'resData' => $res->json()
+                'resData' => $res->json(),
             ]);
         } else {
             Log::error('error: ', [$res->body()]);
+
             return response()->json([
                 'status' => 'error',
-                'message' => 'Something went wrong'
+                'message' => 'Something went wrong',
             ]);
         }
     }

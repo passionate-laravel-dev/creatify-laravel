@@ -2,9 +2,9 @@
 
 namespace Passionatelaraveldev\CreatifyLaravel;
 
+use Passionatelaraveldev\CreatifyLaravel\Commands\CreatifyLaravelCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Passionatelaraveldev\CreatifyLaravel\Commands\CreatifyLaravelCommand;
 
 class CreatifyLaravelServiceProvider extends PackageServiceProvider
 {
