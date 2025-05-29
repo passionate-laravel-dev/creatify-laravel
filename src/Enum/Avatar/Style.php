@@ -8,19 +8,19 @@ enum Style: string
 {
     use HasEnumConvert;
 
-    case SELFIE     = 'selfie';
-    case PRESENTER  = 'presenter';
-    case OTHER      = 'other';
+    case SELFIE = 'selfie';
+    case PRESENTER = 'presenter';
+    case OTHER = 'other';
 
     /**
      * get label from enum
-     * @return string
      */
-    public function label():string {
-        return match($this) {
-            self::SELFIE    => 'Selfie',
+    public function label(): string
+    {
+        return match ($this) {
+            self::SELFIE => 'Selfie',
             self::PRESENTER => 'Presenter',
-            self::OTHER     => 'Other'
+            self::OTHER => 'Other'
         };
     }
 }

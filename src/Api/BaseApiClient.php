@@ -28,20 +28,15 @@ abstract class BaseApiClient implements WithAuth
 
     /**
      * general request
-     *
-     * @param string $method
-     * @param string $url
-     * @param array|null $params
-     *
-     * @return Response
      */
-    public function request(string $method, string $url, ?array $params = []): Response {
-        return match($method) {
-            'get'       => Http::withHeaders($this->getHeaders())->get($this->getFullUrl($url), $params),
-            'post'      => Http::withHeaders($this->getHeaders())->post($this->getFullUrl($url), $params),
-            'put'       => Http::withHeaders($this->getHeaders())->put($this->getFullUrl($url), $params),
-            'delete'    => Http::withHeaders($this->getHeaders())->delete($this->getFullUrl($url), $params),
-            default     => Http::withHeaders($this->getHeaders())->get($this->getFullUrl($url), $params)
+    public function request(string $method, string $url, ?array $params = []): Response
+    {
+        return match ($method) {
+            'get' => Http::withHeaders($this->getHeaders())->get($this->getFullUrl($url), $params),
+            'post' => Http::withHeaders($this->getHeaders())->post($this->getFullUrl($url), $params),
+            'put' => Http::withHeaders($this->getHeaders())->put($this->getFullUrl($url), $params),
+            'delete' => Http::withHeaders($this->getHeaders())->delete($this->getFullUrl($url), $params),
+            default => Http::withHeaders($this->getHeaders())->get($this->getFullUrl($url), $params)
         };
     }
 

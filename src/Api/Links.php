@@ -30,8 +30,10 @@ class Links
      *
      * @see https://docs.creatify.ai/api-reference/links/post-apilinks
      */
-    public function createLink(string $url): JsonResponse {
-        $res = $this->client->request("post", 'api/links', [ 'url' => $url ]);
+    public function createLink(string $url): JsonResponse
+    {
+        $res = $this->client->request('post', 'api/links', ['url' => $url]);
+
         return $this->client->jsonStatusResponse($res);
     }
 
@@ -50,7 +52,8 @@ class Links
         $reviews = null,
         ?string $logo_url = null
     ): JsonResponse {
-        $res = $this->client->request("post", 'api/links/link_with_params', $this->getFuncArgs( __FUNCTION__, func_get_args()));
+        $res = $this->client->request('post', 'api/links/link_with_params', $this->getFuncArgs(__FUNCTION__, func_get_args()));
+
         return $this->client->jsonStatusResponse($res);
     }
 
@@ -72,7 +75,8 @@ class Links
         ?string $logo_url = null,
         ?string $ai_summary = null,
     ): JsonResponse {
-        $res = $this->client->request("put", "api/links/$id", $this->getFuncArgs( __FUNCTION__, func_get_args()));
+        $res = $this->client->request('put', "api/links/$id", $this->getFuncArgs(__FUNCTION__, func_get_args()));
+
         return $this->client->jsonStatusResponse($res);
     }
 

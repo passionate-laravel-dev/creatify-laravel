@@ -26,8 +26,9 @@ class AIScripts
         ?string $target_audience = null,
         ?int $video_length = null,
         ?string $script_styles = null
-    ):JsonResponse {
-        $res = $this->client->request("post", "api/ai_scripts", $this->getFuncArgs(__FUNCTION__, func_get_args()));
+    ): JsonResponse {
+        $res = $this->client->request('post', 'api/ai_scripts', $this->getFuncArgs(__FUNCTION__, func_get_args()));
+
         return $this->client->jsonStatusResponse($res);
     }
 

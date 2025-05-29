@@ -10,10 +10,9 @@ trait HasEnumConvert
 
     /**
      * get enum from string
-     * @param string $value
-     * @return self
      */
-    public static function fromString(string $value): self {
+    public static function fromString(string $value): self
+    {
         $self = self::tryFrom($value);
 
         if ($self === null) {
@@ -25,13 +24,12 @@ trait HasEnumConvert
 
     /**
      * get Enum from label
-     * @param string $label
-     * @return self
      */
-    public static function fromLabel(string $label):self {
-        $match = Arr::first(self::cases(), static fn($enum) => $enum->label() == $label);
+    public static function fromLabel(string $label): self
+    {
+        $match = Arr::first(self::cases(), static fn ($enum) => $enum->label() == $label);
 
-        if(!$match) {
+        if (! $match) {
             self::InvalidTypeLog('fromLabel', $label);
         }
 
@@ -40,18 +38,19 @@ trait HasEnumConvert
 
     /**
      * get labels from enum
-     * @return array
      */
-    public static function getLabels(): array {
-        $labels = Arr::map(self::cases(), static fn($enum) => $enum->label());
+    public static function getLabels(): array
+    {
+        $labels = Arr::map(self::cases(), static fn ($enum) => $enum->label());
+
         return $labels;
     }
 
     /**
      * get label from enum
-     * @return string
      */
-    public function label(): string {
+    public function label(): string
+    {
         return $this->value;
     }
 }
