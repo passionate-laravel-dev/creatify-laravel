@@ -43,7 +43,8 @@ class LinkToVideos
         ?string $caption_offset_y = null,
         ?array $caption_setting = null,
     ): JsonResponse {
-        $res = $this->client->request("post", 'api/lint_to_videos', $this->getFuncArgs(__FUNCTION__, func_get_args()));
+        $res = $this->client->request('post', 'api/lint_to_videos', $this->getFuncArgs(__FUNCTION__, func_get_args()));
+
         return $this->client->jsonStatusResponse($res);
     }
 
@@ -104,7 +105,8 @@ class LinkToVideos
         ?string $caption_offset_y = null,
         ?array $caption_setting = null,
     ): JsonResponse {
-        $res = $this->client->request("post", "api/link_to_videos/preview", $this->getFuncArgs(__FUNCTION__, func_get_args()));
+        $res = $this->client->request('post', 'api/link_to_videos/preview', $this->getFuncArgs(__FUNCTION__, func_get_args()));
+
         return $this->client->jsonStatusResponse($res);
     }
 
@@ -113,8 +115,10 @@ class LinkToVideos
      *
      * @see https://docs.creatify.ai/api-reference/link_to_videos/post-apilink_to_videos_render
      */
-    public function renderVideo(string $id): JsonResponse {
-        $res = $this->client->request("post", "api/link_to_videos/$id/render");
+    public function renderVideo(string $id): JsonResponse
+    {
+        $res = $this->client->request('post', "api/link_to_videos/$id/render");
+
         return $this->client->jsonStatusResponse($res);
     }
 
@@ -152,7 +156,8 @@ class LinkToVideos
         ?array $caption_setting = null,
         ?string $aspect_ratios = null
     ): JsonResponse {
-        $res = $this->client->request("post", "api/link_to_videos/preview_list_async", $this->getFuncArgs(__FUNCTION__, func_get_args()));
+        $res = $this->client->request('post', 'api/link_to_videos/preview_list_async', $this->getFuncArgs(__FUNCTION__, func_get_args()));
+
         return $this->client->jsonStatusResponse($res);
     }
 
@@ -167,7 +172,8 @@ class LinkToVideos
         string $id,
         string $media_job
     ): JsonResponse {
-        $res = $this->client->request("post", "api/link_to_videos/$id/render_single_preview", ['media_job' => $media_job ]);
+        $res = $this->client->request('post', "api/link_to_videos/$id/render_single_preview", ['media_job' => $media_job]);
+
         return $this->client->jsonStatusResponse($res);
     }
 }
