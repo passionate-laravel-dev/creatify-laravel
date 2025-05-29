@@ -2,7 +2,6 @@
 
 namespace Passionatelaraveldev\CreatifyLaravel;
 
-use Passionatelaraveldev\CreatifyLaravel\Commands\CreatifyLaravelCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -17,9 +16,6 @@ class CreatifyLaravelServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('creatify-laravel')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_creatify_laravel_table')
-            ->hasCommand(CreatifyLaravelCommand::class);
+            ->hasConfigFile();
     }
 }
