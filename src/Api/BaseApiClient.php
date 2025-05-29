@@ -8,7 +8,7 @@ use Passionatelaraveldev\CreatifyLaravel\Concerns\HasAuth;
 use Passionatelaraveldev\CreatifyLaravel\Concerns\HasStatusResponse;
 use Passionatelaraveldev\CreatifyLaravel\Contracts\WithAuth;
 
-abstract class BaseApiClient implements WithAuth
+class BaseApiClient implements WithAuth
 {
     use HasAuth;
     use HasStatusResponse;
@@ -17,6 +17,15 @@ abstract class BaseApiClient implements WithAuth
      * api base url
      */
     private string $apiBaseUrl;
+
+    public function __construct(
+        string $apiId,
+        string $apiKey,
+        string $apiBaseUrl
+    ) {
+        $this->apiBaseUrl = $apiBaseUrl;
+        $this->authFrom($apiId, $apiKey);
+    }
 
     /**
      * get full api endpoint

@@ -36,4 +36,13 @@ trait HasAuth
 
         return true;
     }
+
+    /**
+     * set the auth from parameter
+     */
+    public function authFrom(string $x_api_id, string $x_api_key): void
+    {
+        $this->X_API_ID = $x_api_id;
+        $this->X_API_KEY = $x_api_key;
+    }
 }
