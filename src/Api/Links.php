@@ -14,7 +14,6 @@ class Links
     /**
      * Retrieve a list of videos, with an optional ids param to filter vdieo by their UUIDs.
      *
-     *
      * @see https://docs.creatify.ai/api-reference/links/get-apilinks
      */
     public function getExistingLinks(?string $ids = null): JsonResponse
@@ -27,7 +26,6 @@ class Links
     /**
      * API that creates a link from url. Creating a link through this endpoint costs 1 credit.
      *
-     *
      * @see https://docs.creatify.ai/api-reference/links/post-apilinks
      */
     public function createLink(string $url): JsonResponse
@@ -39,8 +37,6 @@ class Links
 
     /**
      * API that creates a link from parameters.
-     *
-     * @param  any|null  $reviews
      *
      * @see https://docs.creatify.ai/api-reference/links/post-apilink_with_params
      */
@@ -59,8 +55,6 @@ class Links
 
     /**
      * API that updates a link.
-     *
-     * @param  any|null  $reviews
      *
      * @see https://docs.creatify.ai/api-reference/links/put-apilinks-
      */
@@ -82,7 +76,6 @@ class Links
 
     /**
      * get link by id
-     *
      *
      * @see https://docs.creatify.ai/api-reference/links/get-apilinks-
      */

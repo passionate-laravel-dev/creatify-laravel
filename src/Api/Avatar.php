@@ -18,8 +18,6 @@ class Avatar
     /**
      * get all avaiblae avatars
      *
-     *
-     *
      * @see https://docs.creatify.ai/api-reference/personas/get-apipersonas
      */
     public function getAllAvailableAvatars(
@@ -43,7 +41,6 @@ class Avatar
     /**
      * Get all vaialble avatars with pagination
      *
-     *
      * @see https://docs.creatify.ai/api-reference/personas/get-apipersonas-paginated
      */
     public function getAllAvailableAvatarsWithPagination(
@@ -57,8 +54,6 @@ class Avatar
 
     /**
      * get all custom avatars
-     *
-     *
      *
      * @see https://docs.creatify.ai/api-reference/personas/get-apipersonas-v2
      */
@@ -94,8 +89,6 @@ class Avatar
 
     /**
      * create custom avatar
-     *
-     * @return JsonRespose
      *
      * @see https://docs.creatify.ai/api-reference/personas/post-apipersonas
      */

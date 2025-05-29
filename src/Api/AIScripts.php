@@ -14,8 +14,6 @@ class AIScripts
     /**
      * API that generates AI-driven scripts based on either a URL or a combination of title and description.
      *
-     *
-     *
      * @see https://docs.creatify.ai/api-reference/ai-scripts/post-ai-scripts
      */
     public function generateAIScripts(
@@ -35,8 +33,6 @@ class AIScripts
     /**
      * Retrieve a list of videos
      *
-     *
-     *
      * @see https://docs.creatify.ai/api-reference/ai-scripts/get-ai-scripts
      */
     public function getAIScriptsItems(
@@ -51,13 +47,11 @@ class AIScripts
     /**
      * Get AI Script item by id
      *
-     * @return JsonResponse
-     *
      * @see https://docs.creatify.ai/api-reference/ai-scripts/get-ai-scripts-
      */
     public function getAIScriptItemById(
         string $id
-    ) {
+    ): JsonResponse {
         $res = $this->client->getRequest("api/ai_scripts/$id");
 
         return $this->client->jsonStatusResponse($res);
