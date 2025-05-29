@@ -39,7 +39,7 @@ class Avatar
     }
 
     /**
-     * Get all vaialble avatars with pagination
+     * Get all avaialble avatars with pagination
      *
      * @see https://docs.creatify.ai/api-reference/personas/get-apipersonas-paginated
      */
