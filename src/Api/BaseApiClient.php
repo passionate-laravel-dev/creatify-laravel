@@ -29,6 +29,25 @@ abstract class BaseApiClient implements WithAuth {
     }
 
     /**
+     * general request
+     *
+     * @param string $method
+     * @param string $url
+     * @param array|null $params
+     *
+     * @return Response
+     */
+    public function request(string $method, string $url, ?array $params = []): Response {
+        return match($method) {
+            'get'       => Http::withHeaders($this->getHeaders())->get($this->getFullUrl($url), $params),
+            'post'      => Http::withHeaders($this->getHeaders())->post($this->getFullUrl($url), $params),
+            'put'       => Http::withHeaders($this->getHeaders())->put($this->getFullUrl($url), $params),
+            'delete'    => Http::withHeaders($this->getHeaders())->delete($this->getFullUrl($url), $params),
+            default     => Http::withHeaders($this->getHeaders())->get($this->getFullUrl($url), $params)
+        };
+    }
+
+    /**
      * general get requests
      *
      * @param string $url
@@ -38,26 +57,6 @@ abstract class BaseApiClient implements WithAuth {
      */
     public function getRequest(string $url, $queryParams = null): Response {
         return Http::withHeaders($this->getHeaders())->get($this->getFullUrl($url), $queryParams);
-    }
-
-    /**
-     * general post requests
-     *
-     * @param string $url
-     * @param array $params
-     */
-    public function postRequest(string $url, ?array $params = []) {
-        return Http::withHeaders($this->getHeaders())->post($this->getFullUrl($url), $params);
-    }
-
-    /**
-     * general put requests
-     *
-     * @param string $url
-     * @param array $params
-     */
-    public function putRequest(string $url, ?array $params = []) {
-        return Http::withHeaders($this->getHeaders())->put($this->getFullUrl($url), $params);
     }
 
     /**
@@ -74,6 +73,4 @@ abstract class BaseApiClient implements WithAuth {
         ];
         return array_merge($authHeaders, $defaultHeaders, $headers);
     }
-
-
 }
